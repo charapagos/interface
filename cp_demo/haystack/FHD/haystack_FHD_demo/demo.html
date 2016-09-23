@@ -1,0 +1,145 @@
+<html>
+<head>
+<title></title>
+<script type='text/javascript'>
+//<!-- 
+
+var prefix = "ph";
+var index = 0;
+var count = 0;
+
+function $(id) {
+  return document.getElementById(id);
+}
+
+function init() {
+  // スライドの数を調査し、clickイベントを追加。すべて表示は消す
+  while (true) {
+    try {
+      var pane = $(prefix + count);
+      if (pane) {
+        pane.style.display = "none";
+        pane.onclick = show_next;
+        count += 1;
+      } else {
+        break;
+      }
+    } catch (ex) {
+      break;
+    }
+  }
+  // 最初のスライドだけ表示
+  $(prefix + 0).style.display = "block";
+}
+
+// 前のスライドを消して、後のスライドを表示
+function show_hide(hide_index, show_index) {
+  $(prefix + hide_index).style.display = "none";
+  $(prefix + show_index).style.display = "block";
+
+}
+
+// clickで呼ぶ。今のスライドを消し、次のスライドを表示
+function show_next() {
+  var prev_index = index;
+  index = (index + 1) % count;
+  show_hide(prev_index, index);
+}
+
+// clickで呼ぶ。今のスライドを消し、最初のスライドを表示
+function reset() {
+  var prev_index = index;
+  index = 0;
+  show_hide(prev_index, index);
+}
+
+//-->
+</script>
+<style type="text/css">
+<!--
+.photo { 
+           position    : absolute           ;
+           left        : 10px                ;
+           top         : 10px                ;
+           font-family : Osaka,Arial        ;
+           font-size   : 24pt               ;
+           visibility  : visible            ;
+           display : none;
+}
+#test1 { 
+           position    : absolute           ;
+           left        : 780px              ;
+           top         : 2010px              ;
+           font-size   : 24pt               ;
+}
+h1{
+           color       : #000000            ;
+           font-family : Osaka,Arial        ;
+           font-size   : 28pt               ;
+           text-align  : center             ;
+}
+h2{
+           position    : relative           ;
+           left        : 860px              ;
+           top         : 860px              ;
+           color       : #000000            ;
+           font-family : Osaka,Arial        ;
+           font-size   : 32pt               ;
+           text-align  : center             ;
+}
+-->
+</style>
+
+</head>
+<body onload="init()">
+
+<div id="test1">
+<font face="Osaka,MS PGothic">
+クリックをして下さい！　<a href="#" onclick="reset()">リセット</a>
+</font>
+
+</div>
+
+<!--↓ここへid="ph0"からph1,ph2,ph3...とidの数字を増やしつつ
+    画像などを並べてください ////////////////////////////-->
+
+<div id="ph0" class="photo">
+<img src="img/wink.png">
+<h1>『Haystack感性表現七変化』</h1>
+</div>
+<div id="ph1" class="photo">
+<img src="img/grin.png">
+<h1>いつもは素直に喜ぶことが多いけど、</h1>
+</div>
+<div id="ph2" class="photo">
+<img src="img/discouraged.png">
+<h1>たまには、落ち込んだりもする。</h1>
+
+</div>
+<div id="ph3" class="photo">
+<img src="img/angry.png">
+<h1>怒り心頭のこともあれば、</h1>
+</div>
+<div id="ph4" class="photo">
+<img src="img/joy.png">
+<h1>満面の笑顔を浮かべることもある！</h1>
+</div>
+<div id="ph5" class="photo">
+<img src="img/serious.png">
+<h1>時には、真剣だったり、</h1>
+</div>
+<div id="ph6" class="photo">
+
+<img src="img/annoyed.png">
+<h1>また、道に迷うこともあるが、</h1>
+</div>
+<div id="ph7" class="photo">
+<img src="img/agree.png">
+<h1>それでも人生は楽しい！！</h1>
+</div>
+<div id="ph8" class="photo">
+<h2>お・し・ま・い</h2>
+</div>
+
+</body>
+</html>
