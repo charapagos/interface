@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <script>
+    //1-------------------------------
+    function onButtonClick() {
+      //3
+      var text = document.getElementById("message").value;
+      var input = document.getElementById("input");
+      input.innerHTML = text;
+
+      var words = /(glad|happy|interesting|easy|sad|angry|painful|difficult|うれしい|楽しい|面白い|簡単|悲しい|腹が立つ|つらい|難しい)/g;
+      var matched = text.match(words);
+      console.log(matched.join("<br />"));
+
+      var output = document.getElementById("output");
+      output.innerHTML = matched.join(" ");
+
+      register(matched);
+    }
+
+    //1-------------------------------
+    function register(matched) {
+      console.log("register", matched);
+      //4,6,8
+      var image = document.getElementById("image");
+      if (matched.length === 0) {
+        image.src = "image/default.png";
+        // finished
+      } else {
+        image.src = "image/" + resolve(matched[0]) + ".png";
+        // event
+        image.addEventListener("click", function change() {
+          //5,7,9
+          image.removeEventListener("click", change, false);
+          register(matched.slice(1));  // continued(recursive)
+        }, false);
+        // event
+      }
+    }
+
+    function resolve(word) {
+      var map = {
+        //"happy": "sad",
+        "うれしい": "glad",
+        "楽しい": "happy",
+        "面白い": "interesting",
+        "簡単": "easy",
+        "悲しい": "sad",
+        "腹が立つ": "angry",
+        "つらい": "painful",
+        "難しい": "difficult",
+      };
+
+      return map[word] || word;
+    }
+
+    //1-------------------------------
+    window.addEventListener("load", function () {
+      //2
+      document.getElementById("run").addEventListener(
+        "click", onButtonClick, false);
+    }, false);
+  </script>
+</head>
+<body>
+  <input id="message" type="text" value="" />
+  <button id="run">push</button>
+  <hr/>
+  <div id="input"></div>
+  <div id="output"></div>
+  画像をクリックすると、画像が入れ替わります。<br>
+  <img id="image" src="image/default.png" style="border-style: none;"><br>
+</body>
+</html>
