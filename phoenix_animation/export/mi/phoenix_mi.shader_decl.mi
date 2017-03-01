@@ -1,0 +1,4 @@
+$include "base.mdl"
+$include "state.mdl"
+$include "daz_3d::basic.mdl"
+$include "daz_3d::irayubermaterial.mdl"

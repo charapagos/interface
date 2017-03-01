@@ -1,0 +1,154 @@
+newmtl Beak
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.36862746 0.36862746 0.36862746
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Skin
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.11764706 0.035294119 0.14509805
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Cornea
+d 0
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl EyeWhite
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.81176472 0.81176472 0.81176472
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl EyeSocket
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.11764706 0.035294119 0.14509805
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl InsideBeak
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.11764706 0.035294119 0.14509805
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Iris
+d 1
+Ns 0.95655328
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl SkinLeg
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.18431373 0.18431373 0.18431373
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Nostrils
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Pupil
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Talons
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.55686277 0.55686277 0.55686277
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Tongue
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.11764706 0.035294119 0.14509805
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Feathers
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
+newmtl Feather1
+d 1
+Ns 0.85000002
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Km 0.02
+map_Kd /Maps/hphoenixcolor.jpg
+map_Ks /Maps/hphoenixcolor_S.jpg
+
