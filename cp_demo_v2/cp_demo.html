@@ -1,43 +1,105 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8" />
-  <title></title>
   <style>
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  .view {
-    display: flex;
-    background: white;
-  }
-  @media screen and (orientation: landscape) {
-    .character .face {
-      height: 100vh;
-    }
-    .view {
-      flex-direction: row;
-    }
-    #message-log {
-      height: 55vh;
-      overflow: scroll;
-    }
-  }
-  @media screen and (orientation: portrait) {
-    .character .face {
+    body {
+      margin: 0px;
+      padding: 0px;
       width: 100vw;
+      height: 100vh;
+      background-color: gray;
     }
     .view {
+      width: 70%;
+      height: 80%;
+      background-color: blue;
+    }
+    .control {
+      width: 20%;
+      height: 90%;
+      background-color: red;
+    }
+    .items {
+      background-color: yellow;
+      height: 80%;
+      width: 90%;
+      margin: 2%;
+      overflow: auto;
+    }
+    .input {
+      background-color: green;
+      height: 20%;
+      width: 90%;
+      margin: 2%;
+    }
+    .item {
+      background-color: magenta;
+      height: 20%;
+      width: 90%;
+      margin: 2%;
+    }
+    .item:hover{
+      background-color: cyan;
+      height: 20%;
+      width: 90%;
+    }
+    /*flexbox*/
+    body {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .control {
+      display: flex;
       flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
     }
-    .message {
-      height: 25vh;
-      overflow: scroll;
+    .items {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
     }
-  }
-
-  </style>
+    .item {
+    }
+    .item:hover {
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    @media all and (orientation:portrait) {
+      .view {
+        width: 90%;
+        height: 70%;
+      }
+      .control {
+        width: 90%;
+        height: 25%;
+      }
+      .items {
+        height: 50%;
+      }
+      .input {
+        height: 50%;
+      }
+      .item {
+        height: 80%;
+        width: 90%;
+      }
+      .item:hover {
+        height: 90%;
+        width: 95%;
+      }
+      body {
+        flex-direction: column;
+      }
+      .items {
+        display: block;
+        overflow-y: scroll;
+      }
+    }
+    </style>
   <script>
     //1-------------------------------
     function onButtonClick() {
@@ -62,7 +124,7 @@
     function register(matched) {
       console.log("register", matched);
       //4,6,8
-      var image = document.querySelector(".character .face");
+      var image = document.querySelector(".character .view");
       if (matched.length === 0) {
         image.src = "image/default.png";
         // finished
@@ -121,18 +183,24 @@
 <body>
   <div class="view">
    <div class="character">
-     <img class="face" src="image/default.png" style="border-style: none;">
+     <img class="view" src="image/default.png" style="border-style: none;">
    </div>
-   <div class="message">
-     <div class="message-input">
-       <p>Please write a message here!</p>
-       <p><input id="message" type="text" value="" /></p>
-       <p><button id="run">push</button></p>
+   <div class="control">
+     <div class="items">
+       <div class="item">
+         <p>Matched word:</p>
+         <div id="current-words"></div>
+         <p>Your message:</p>
+         <div id="message-log"></div>
+       </div>
+       <div class="input">
+         <div class="message-input">
+           <p>Please write a message here!</p>
+           <p><input id="message" type="text" value="" /></p>
+           <p><button id="run">push</button></p>
+         </div>
+       </div>
      </div>
-     <p>Matched word:</p>
-     <div id="current-words"></div>
-     <p>Your message:</p>
-     <div id="message-log"></div>
    </div>
  </div>
 </body>
