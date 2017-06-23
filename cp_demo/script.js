@@ -6,6 +6,7 @@ function onButtonClick() {
   var para = document.createElement("p");
   para.innerHTML = text;
   messageLog.appendChild(para);
+  messageLog.scrollTop = messageLog.scrollHeight;
 
   var matched = text.toLowerCase().match(words);
   console.log(matched.join("<br />"));

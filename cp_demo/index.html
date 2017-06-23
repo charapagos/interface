@@ -15,24 +15,40 @@
     padding: 0;
   }
   .view {
+    height: 100vh;
     display: flex;
     background: white;
   }
+  .message {
+    display: flex;
+  }
   @media screen and (orientation: landscape) {
     .character .face {
-      height: 100vh;
+      height: 90vh;
     }
     .view {
       flex-direction: row;
+      height: 100vh;
     }
     .message {
-      height: 10vh;
-      margin: 30px;
-      padding: 10px;
+      height: 90vh;
+      margin: 5vh;
+      flex-direction: column-reverse;
     }
-    .message-log {
-      height: 55vh;
-      overflow: scroll;
+    .message-input {
+      height: 30%;
+    }
+    .message-view {
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    #message-log {
+      overflow-y: auto;
+      flex-shrink: 1;
+    }
+    #message-log > p {
     }
   }
   @media screen and (orientation: portrait) {
@@ -61,15 +77,17 @@
      <img class="face" src="image/default.png" style="border-style: none;">
    </div>
    <div class="message">
-     <p>Please write a message here!</p>
-     <p><a href="keywords_list.html" target="_blank">Emotional and actional keywords list</a></p>
-     <p><input id="message" type="text" value="" /></p>
-     <p><button id="run"><font size="3">push</font></button></p>
-     <p>Matched word:</p>
-     <div id="current-words"></div>
-     <p>Your message:</p>
-     <div id="message-log"></div>
      <div class="message-input">
+       <p>Please write a message here!</p>
+       <p><a href="keywords_list.html" target="_blank">Emotional and actional keywords list</a></p>
+       <p><input id="message" type="text" value="" /></p>
+       <p><button id="run"><font size="3">push</font></button></p>
+       <p>Matched word:</p>
+       <div id="current-words"></div>
+     </div>
+     <div class="message-view">
+       <p>Your message:</p>
+       <div id="message-log"></div>
      </div>
    </div>
  </div>
