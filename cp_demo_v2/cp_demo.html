@@ -3,20 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <title></title>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .view {
+    display: flex;
+    background: white;
+  }
+  @media screen and (orientation: landscape) {
+    .character .face {
+      height: 100vh;
+    }
+    .view {
+      flex-direction: row;
+    }
+    #message-log {
+      height: 55vh;
+      overflow: scroll;
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .character .face {
+      width: 100vw;
+    }
+    .view {
+      flex-direction: column;
+    }
+    .message {
+      height: 25vh;
+      overflow: scroll;
+    }
+  }
+
+  </style>
   <script>
     //1-------------------------------
     function onButtonClick() {
       //3
       var text = document.getElementById("message").value;
-      var input = document.getElementById("input");
-      input.innerHTML = text;
+      var messageLog = document.getElementById("message-log");
+      var para = document.createElement("p");
+      para.innerHTML = text;
+      messageLog.appendChild(para);
 
-      var words = /(glad|happy|interesting|easy|sad|angry|painful|difficult|うれしい|楽しい|面白い|簡単|悲しい|腹が立つ|つらい|難しい)/g;
+      var words = /(glad|happy|interesting|easy|sad|angry|painful|difficult|ache|agree|annoyed|bye|cheer|discouraged|full|greet|grin|hint|hurried|joy|love|please|pleasure|pride|rage|rely|serious|smile|sorry|surprised|thanks|think|welcome|wink|worried|うれしい|楽しい|面白い|簡単|悲しい|腹が立つ|つらい|難しい|高興|快樂|有趣的|容易|悲傷|憤怒|痛苦|困難|ดีใจ|สุข|ที่น่าสนใจ|ง่าย|เศร้า|โกรธ|เจ็บปวด|เรื่องยาก)/g;
       var matched = text.match(words);
       console.log(matched.join("<br />"));
 
-      var output = document.getElementById("output");
-      output.innerHTML = matched.join(" ");
+      var currentWords = document.getElementById("current-words");
+      currentWords.innerHTML = matched.join(" ");
 
       register(matched);
     }
@@ -25,21 +62,21 @@
     function register(matched) {
       console.log("register", matched);
       //4,6,8
-      var image = document.getElementById("image");
+      var image = document.querySelector(".character .face");
       if (matched.length === 0) {
         image.src = "image/default.png";
         // finished
       } else {
         image.src = "image/" + resolve(matched[0]) + ".png";
-        // event
-        image.addEventListener("click", function change() {
-          //5,7,9
-          image.removeEventListener("click", change, false);
-          register(matched.slice(1));  // continued(recursive)
-        }, false);
-        // event
+        image.addEventListener("load", function change() {
+          image.removeEventListener("load", change, false);
+          function slide(){
+            register(matched.slice(1));
+          }
+          setTimeout(slide, 1000);
+          }, false);
+        }
       }
-    }
 
     function resolve(word) {
       var map = {
@@ -52,6 +89,22 @@
         "腹が立つ": "angry",
         "つらい": "painful",
         "難しい": "difficult",
+        "高興": "glad",
+        "快樂": "happy",
+        "有趣的": "interesting",
+        "容易": "easy",
+        "悲傷": "sad",
+        "憤怒": "angry",
+        "痛苦": "painful",
+        "困難": "difficult",
+        "ดีใจ": "glad",
+        "สุข": "happy",
+        "ที่น่าสนใจ": "interesting",
+        "ง่าย": "easy",
+        "เศร้า": "sad",
+        "โกรธ": "angry",
+        "เจ็บปวด": "painful",
+        "เรื่องยาก": "difficult"
       };
 
       return map[word] || word;
@@ -66,12 +119,21 @@
   </script>
 </head>
 <body>
-  <input id="message" type="text" value="" />
-  <button id="run">push</button>
-  <hr/>
-  <div id="input"></div>
-  <div id="output"></div>
-  画像をクリックすると、画像が入れ替わります。<br>
-  <img id="image" src="image/default.png" style="border-style: none;"><br>
+  <div class="view">
+   <div class="character">
+     <img class="face" src="image/default.png" style="border-style: none;">
+   </div>
+   <div class="message">
+     <div class="message-input">
+       <p>Please write a message here!</p>
+       <p><input id="message" type="text" value="" /></p>
+       <p><button id="run">push</button></p>
+     </div>
+     <p>Matched word:</p>
+     <div id="current-words"></div>
+     <p>Your message:</p>
+     <div id="message-log"></div>
+   </div>
+ </div>
 </body>
 </html>
