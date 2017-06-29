@@ -57,15 +57,27 @@
     }
     .view {
       flex-direction: column;
+      height: 100vh;
     }
     .message {
       height: 20vh;
-      margin: 30px;
-      padding: 10px;
+      margin: 5vh;
+      flex-direction: column-reverse;
     }
-    .message-log {
-      height: 15vh;
-      overflow: scroll;
+    .message-input {
+      height: 30%;
+    }
+    .message-view {
+      height: 95%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    #message-log {
+      overflow-y: auto;
+      flex-shrink: 1;
+    }
+    #message-log > p {
     }
   }
 
