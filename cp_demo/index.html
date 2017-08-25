@@ -90,15 +90,27 @@
    </div>
    <div class="message">
      <div class="message-input">
-       <p>Please write a message here!</p>
-       <p><a href="keywords_list.html" target="_blank">Emotional and actional keywords list</a></p>
-       <p><input id="message" type="text" value="" /></p>
-       <p><button id="run"><font size="3">push</font></button></p>
-       <p>Matched word:</p>
-       <div id="current-words"></div>
+       <p>Please write a script here!</p>
+       <p><textarea id="message" rows="4" cols="40"></textarea></p>
+       <p>
+         <button id="run"><font size="3">play</font></button>
+         <button id=><font size="3">audience</font></button>
+         <button id="url"><font size="3">URL</font></button>
+         <button id=><font size="3">save</font></button>
+         <button id=><font size="3">character</font></button>
+       </p>
      </div>
      <div class="message-view">
-       <p>Your message:</p>
+     <p>Matched word:</p>
+     <div id="current-words"></div>
+     </div>
+     <div class="message-view">
+       <p>URL:</p>
+       <ul></ul>
+       <iframe id="iframe" sandbox="allow-same-origin" style="display: none"></iframe>
+     </div>
+     <div class="message-view">
+       <p>Script:</p>
        <div id="message-log"></div>
      </div>
    </div>
