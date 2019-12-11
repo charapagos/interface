@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.0.0/dist/aframe-extras.min.js"></script>
+  <script src="words.js"></script>
+  <script src="wordsEn.js"></script>
+  <script src="wordsJa.js"></script>
+  <script src="wordsZh.js"></script>
+  <script src="wordsTh.js"></script>
+  <script src="script.js"></script>
+  <title></title>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .view {
+    height: 100vh;
+    display: flex;
+    background: white;
+  }
+  .message {
+    display: flex;
+  }
+  @media screen and (orientation: landscape) {
+    .character .face {
+      height: 90vh;
+    }
+    .view {
+      flex-direction: row;
+      height: 100vh;
+    }
+    .message {
+      height: 90vh;
+      margin: 5vh;
+      flex-direction: column-reverse;
+    }
+    .message-input {
+      height: 30%;
+    }
+    .message-view {
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    #message-log {
+      overflow-y: auto;
+      flex-shrink: 1;
+    }
+    #message-log > p {
+    }
+  }
+  @media screen and (orientation: portrait) {
+    .character .face {
+      width: 65vw;
+    }
+    .view {
+      flex-direction: column;
+      height: 100vh;
+    }
+    .message {
+      height: 20vh;
+      margin: 5vh;
+      flex-direction: column-reverse;
+    }
+    .message-input {
+      height: 30%;
+    }
+    .message-view {
+      height: 95%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    #message-log {
+      overflow-y: auto;
+      flex-shrink: 1;
+    }
+    #message-log > p {
+    }
+  }
+
+  </style>
+</head>
+<body>
+  <div class="view">
+   <div class="character">
+     <img class="face" style="display: none" src="image/default.png" style="border-style: none;">
+     <a-scene style="width:512px;height:512px;" embedded>
+        <a-assets>
+           <!--<a-asset-item id="haystack_agree" src="haystack_agree.glb"></a-asset-item>-->
+        </a-assets>
+        <a-plane position="0 -0.1 0" rotation="-90 0 0" width="4" height="4"
+                 color="#7BC8A4"></a-plane>
+        <a-sky color="#ECECEC"></a-sky>
+        <!--<a-entity gltf-model="#haystack_agree"></a-entity>-->
+        <a-camera position="0 1 4"></a-camera>
+    </a-scene>
+   </div>
+   <div class="message">
+     <div class="message-input">
+       <p>Please write a message here!</p>
+       <p><a href="keywords_list.html" target="_blank">Emotional and actional keywords list</a></p>
+       <p><input id="message" type="text" value="" /></p>
+       <p><button id="run"><font size="3">push</font></button></p>
+       <p>Matched word:</p>
+       <div id="current-words"></div>
+     </div>
+     <div class="message-view">
+       <p>Your message:</p>
+       <div id="message-log"></div>
+     </div>
+   </div>
+ </div>
+</body>
+</html>
